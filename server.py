@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from docx import Document
 import smtplib
-import keys
+
 
 document = Document()
 
@@ -13,7 +13,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/review", methods=["post"]) #  @@@Batman&R081N@@@
+@app.route("/review", methods=["post"])
 def review():
     email = request.form["email"].strip()
     file_name = request.form["filename"].strip()
@@ -27,14 +27,13 @@ def review():
     # with open("./output/" + file_name + "_cover_letter.txt", "w") as letter:
     for component in document_components:
         document.add_paragraph(component)
-    string_doc = str(document.save(file_name + "_cover_letter.docx"))
-    with smtplib.SMTP("smtp.gmail.com") as connection:
-        connection.starttls()
-        connection.login(user="cl.scribot@gmail.com", password="@@@Batman&R081N@@@")
-        connection.sendmail(from_addr="cl.scribot@gmail.com",
-                            to_addrs=email,
-                            msg=f"Subject: {file_name + '_cover_letter.docx'}\n\n{greeting + ','}\n\n{opening}\n\n{qualifications}\n\n{personal}\n\n{closing}\n\n{farewell}")
-                            # msg=(f"Subject: {file_name}\n\n{document.save(file_name + '_cover_letter.docx')}"))
+        document.save("./static/cover_letter.docx")
+    # with smtplib.SMTP("smtp.gmail.com") as connection:
+    #     connection.starttls()
+    #     connection.login(user="cl.scribot@gmail.com", password="@@@Batman&R081N@@@")
+    #     connection.sendmail(from_addr="cl.scribot@gmail.com",
+    #                         to_addrs=email,
+    #                         msg=f"Subject: {file_name + '_cover_letter.docx'}\n\n{greeting + ','}\n\n{opening}\n\n{qualifications}\n\n{personal}\n\n{closing}\n\n{farewell}")
 
     #         letter.write("    " + component + "\n\n")
     return render_template("review.html", file_name=file_name, greeting=greeting, opening=opening,
