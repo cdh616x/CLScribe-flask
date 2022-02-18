@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request
 from docx import Document
+import smtplib
+import keys
 
 document = Document()
 
@@ -13,6 +15,7 @@ def index():
 
 @app.route("/review", methods=["post"])
 def review():
+    email = request.form["email"].strip()
     file_name = request.form["filename"].strip()
     greeting = request.form["greeting"]
     opening = request.form["opening"]
@@ -24,11 +27,18 @@ def review():
     # with open("./output/" + file_name + "_cover_letter.txt", "w") as letter:
     for component in document_components:
         document.add_paragraph(component)
-        document.save(file_name + "_cover_letter.docx")
+    string_doc = str(document.save(file_name + "_cover_letter.docx"))
+    with smtplib.SMTP("smtp.gmail.com") as connection:
+        connection.starttls()
+        connection.login(user=keys.email, password=keys.password)
+        connection.sendmail(from_addr=keys.email,
+                            to_addrs=email,
+                            msg=f"Subject: {file_name + '_cover_letter.docx'}\n\n{greeting + ','}\n\n{opening}\n\n{qualifications}\n\n{personal}\n\n{closing}\n\n{farewell}")
+                            # msg=(f"Subject: {file_name}\n\n{document.save(file_name + '_cover_letter.docx')}"))
 
     #         letter.write("    " + component + "\n\n")
     return render_template("review.html", file_name=file_name, greeting=greeting, opening=opening,
-                            qualifications=qualifications, personal=personal, closing=closing, farewell=farewell)
+                           qualifications=qualifications, personal=personal, closing=closing, farewell=farewell)
 
 
 if __name__ == "__main__":
