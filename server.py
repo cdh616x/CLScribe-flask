@@ -1,4 +1,7 @@
 from flask import Flask, render_template, request
+from docx import Document
+
+document = Document()
 
 app = Flask(__name__)
 
@@ -10,15 +13,22 @@ def index():
 
 @app.route("/review", methods=["post"])
 def review():
-    x = request.form["filename"]
-    y = request.form["greeting"]
-    z = request.form["opening"]
-    a = request.form["closing"]
-    document_components = [y, z, a]
-    with open("./output/" + x + ".txt", "w") as letter:
-        for component in document_components:
-            letter.write(component + "\n\n")
-    return render_template("review.html", greeting=y, opening=z, closing=a)
+    file_name = request.form["filename"].strip()
+    greeting = request.form["greeting"]
+    opening = request.form["opening"]
+    qualifications = request.form["qualifications"]
+    personal = request.form["personal"]
+    closing = request.form["closing"]
+    farewell = request.form["farewell"]
+    document_components = [greeting, opening, qualifications, personal, closing, farewell]
+    # with open("./output/" + file_name + "_cover_letter.txt", "w") as letter:
+    for component in document_components:
+        document.add_paragraph(component)
+        document.save("./output/" + file_name + "_cover_letter.docx")
+
+    #         letter.write("    " + component + "\n\n")
+    return render_template("review.html", file_name=file_name, greeting=greeting, opening=opening,
+                            qualifications=qualifications, personal=personal, closing=closing, farewell=farewell)
 
 
 if __name__ == "__main__":

@@ -1,13 +1,18 @@
 body {
-    background-color: red;
+    background: linear-gradient(to right, #e66465, #9198e5);
 }
 
 textarea {
     width: 100%;
+    padding: 1% 1% 1%;
 }
 
-h3 {
+h3, p {
     text-align: right;
+}
+
+.prompt-col {
+    width: 40%;
 }
 
 .input-row{
