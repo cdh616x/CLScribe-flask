@@ -24,7 +24,7 @@ def review():
     # with open("./output/" + file_name + "_cover_letter.txt", "w") as letter:
     for component in document_components:
         document.add_paragraph(component)
-        document.open("./output/" + file_name + "_cover_letter.docx")
+        document.save("./output/" + file_name + "_cover_letter.docx")
 
     #         letter.write("    " + component + "\n\n")
     return render_template("review.html", file_name=file_name, greeting=greeting, opening=opening,
