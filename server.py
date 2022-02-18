@@ -18,7 +18,7 @@ def review():
     with open("./output/" + x + ".txt", "w") as letter:
         for component in document_components:
             letter.write(component + "\n\n")
-    return x
+    return render_template("review.html", greeting=y, opening=z, closing=a)
 
 
 if __name__ == "__main__":
