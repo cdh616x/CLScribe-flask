@@ -13,7 +13,7 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/review", methods=["post"])
+@app.route("/review", methods=["post"]) #  @@@Batman&R081N@@@
 def review():
     email = request.form["email"].strip()
     file_name = request.form["filename"].strip()
@@ -30,9 +30,9 @@ def review():
     string_doc = str(document.save(file_name + "_cover_letter.docx"))
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
-        connection.login(user="cdhprof@gmail.com", password="StinkyCactus@@@")
-        connection.sendmail(from_addr="cdhprof@gmail.com",
-                            to_addrs="cdhprof@gmail.com",
+        connection.login(user="cl.scribot@gmail.com", password="@@@Batman&R081N@@@")
+        connection.sendmail(from_addr="cl.scribot@gmail.com",
+                            to_addrs=email,
                             msg=f"Subject: {file_name + '_cover_letter.docx'}\n\n{greeting + ','}\n\n{opening}\n\n{qualifications}\n\n{personal}\n\n{closing}\n\n{farewell}")
                             # msg=(f"Subject: {file_name}\n\n{document.save(file_name + '_cover_letter.docx')}"))
 
