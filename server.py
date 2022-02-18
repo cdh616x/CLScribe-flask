@@ -30,8 +30,8 @@ def review():
     string_doc = str(document.save(file_name + "_cover_letter.docx"))
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
-        connection.login(user=keys.email, password=keys.password)
-        connection.sendmail(from_addr=keys.email,
+        connection.login(user="cdhprof@gmail.com", password="Lyr1c@@@")
+        connection.sendmail(from_addr="cdhprof@gmail.com",
                             to_addrs=email,
                             msg=f"Subject: {file_name + '_cover_letter.docx'}\n\n{greeting + ','}\n\n{opening}\n\n{qualifications}\n\n{personal}\n\n{closing}\n\n{farewell}")
                             # msg=(f"Subject: {file_name}\n\n{document.save(file_name + '_cover_letter.docx')}"))
