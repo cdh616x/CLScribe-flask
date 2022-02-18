@@ -1,0 +1,15 @@
+body {
+    background-color: red;
+}
+
+textarea {
+    width: 100%;
+}
+
+h3 {
+    text-align: right;
+}
+
+.input-row{
+    padding-bottom: 2%;
+}
