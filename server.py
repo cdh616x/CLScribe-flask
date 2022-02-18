@@ -15,7 +15,6 @@ def index():
 
 @app.route("/review", methods=["post"])
 def review():
-    email = request.form["email"].strip()
     file_name = request.form["filename"].strip()
     greeting = request.form["greeting"]
     opening = request.form["opening"]
@@ -24,18 +23,9 @@ def review():
     closing = request.form["closing"]
     farewell = request.form["farewell"]
     document_components = [greeting, opening, qualifications, personal, closing, farewell]
-    # with open("./output/" + file_name + "_cover_letter.txt", "w") as letter:
     for component in document_components:
         document.add_paragraph(component)
         document.save("./static/cover_letter.docx")
-    # with smtplib.SMTP("smtp.gmail.com") as connection:
-    #     connection.starttls()
-    #     connection.login(user="cl.scribot@gmail.com", password="@@@Batman&R081N@@@")
-    #     connection.sendmail(from_addr="cl.scribot@gmail.com",
-    #                         to_addrs=email,
-    #                         msg=f"Subject: {file_name + '_cover_letter.docx'}\n\n{greeting + ','}\n\n{opening}\n\n{qualifications}\n\n{personal}\n\n{closing}\n\n{farewell}")
-
-    #         letter.write("    " + component + "\n\n")
     return render_template("review.html", file_name=file_name, greeting=greeting, opening=opening,
                            qualifications=qualifications, personal=personal, closing=closing, farewell=farewell)
 
