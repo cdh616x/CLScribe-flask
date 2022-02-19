@@ -1,5 +1,43 @@
 body {
-    background: linear-gradient(to right, #e66465, #9198e5);
+    background: linear-gradient(0.25turn, #D5D5D5, #1E5D88);
+    width: 100%;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.row {
+    width: 100%;
+    margin: 0;
+}
+
+.title {
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 15px;
+    color: white;
+    font-family: "Roboto Mono", sans-serif;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.title-col {
+    width: 50%;
+    padding: 5% 5% 2%;
+}
+
+.title-col2 {
+    color: white;
+    font-family: "Roboto Mono", sans-serif;
+    width: 50%;
+    padding: 5% 5% 0;
+    text-align: left;
 }
 
 textarea {
@@ -12,7 +50,32 @@ h3, p {
 }
 
 .prompt-col {
+    font-family: "Roboto Mono", sans-serif;
     width: 40%;
+    padding: 0 2% 0;
+}
+
+.submit-col {
+    background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+    border-color: black;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 15px;
+    color: white;
+    padding: 0 10% 5%;
+    font-family: "Roboto Mono", sans-serif;
+    text-align: center;
+    width: 100%;
+}
+
+.submit {
+    margin: 2% 0 2%;
+}
+
+.align-center {
+    text-align: center;
 }
 
 .input-row{
