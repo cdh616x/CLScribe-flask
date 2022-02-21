@@ -81,3 +81,10 @@ h3, p {
 .input-row{
     padding-bottom: 2%;
 }
+
+footer {
+    padding: 2% 0 2%;
+    text-align: center;
+    font-family: "Roboto Mono", sans-serif;
+    color: white;
+}
