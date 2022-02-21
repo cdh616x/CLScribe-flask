@@ -1,5 +1,5 @@
 .document {
-    padding: 5% 20% 10%;
+    padding: 5% 15% 10%;
     text-align: justify;
 }
 
@@ -25,6 +25,7 @@ h1, h2 {
 
 .d {
     background-color: white;
+    padding: 5% 5% 5%;
 }
 
 .title {
