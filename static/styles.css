@@ -88,3 +88,8 @@ footer {
     font-family: "Roboto Mono", sans-serif;
     color: white;
 }
+
+.underline {
+    text-decoration: underline;
+    color: white;
+}
