@@ -98,3 +98,7 @@ footer {
     color: white;
     text-decoration: none;
 }
+
+.submit-row {
+    padding: 0 10% 0;
+}
