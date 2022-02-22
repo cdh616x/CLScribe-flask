@@ -54,3 +54,8 @@ footer {
     font-family: "Roboto Mono", sans-serif;
     color: white;
 }
+
+.white-text {
+    color: white;
+    text-decoration: none;
+}
