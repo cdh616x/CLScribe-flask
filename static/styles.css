@@ -93,3 +93,8 @@ footer {
     text-decoration: underline;
     color: white;
 }
+
+.white-text {
+    color: white;
+    text-decoration: none;
+}
